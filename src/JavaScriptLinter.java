@@ -49,7 +49,7 @@ public class JavaScriptLinter {
 
 
 
-
+// *ADDING A COMMENT BECAUSE GIT IS BEING WEIRD *
 
                 if (scanner.nextLine().contains("{")) {
                     System.out.println("SKIPPED LINE " + line);
