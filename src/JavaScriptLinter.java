@@ -20,6 +20,11 @@ public class JavaScriptLinter {
     public static void javaScriptLinter (String fileName) {
         int line = 0;
         String regExSkipTheseLine = "\\b(if)\\b|\\b(else)\\b|}|\\{";
+//        String losingHope = "if||else";
+//        Boolean stillLosingHope = Boolean.parseBoolean(losingHope);
+//        System.out.println(Boolean.parseBoolean(losingHope));
+//        String regExSkipTheseLine = ;
+
         String semicolon = ";";
 
 //        Pattern regEx = Pattern.compile(regExSkipTheseLine);
@@ -38,14 +43,19 @@ public class JavaScriptLinter {
             while (scanner.hasNextLine()) {
                 line++;
                 System.out.println("Checking Line " + line);
-                System.out.println("Line " + line + " reads:   -->   " + scanner.nextLine() + "   <--");
+//                System.out.println("Line " + line + " reads:   -->   " + scanner.nextLine() + "   <--");
 //            Matcher regExMatches = regEx.matcher(scanner.next());
 //            Matcher semiFinder = semi.matcher(scanner.next());
 
 
-//                if (scanner.nextLine().contains("\\b(if)\\b|\\b(else)\\b|}|\\{")) {
-//                    System.out.println("skipped line");
-//                } else if (!scanner.nextLine().contains(semicolon)) {
+
+
+
+                if (scanner.nextLine().contains("{")) {
+                    System.out.println("SKIPPED LINE " + line);
+                }
+
+//                    else if (!scanner.nextLine().contains(semicolon)) {
 //                    System.out.println("Line " + line + ": Missing semicolon.");
 //                }
 
