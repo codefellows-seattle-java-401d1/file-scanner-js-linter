@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class JavaScriptLinter {
     public static void main(String[] args) {
@@ -17,8 +19,17 @@ public class JavaScriptLinter {
 
     public static void javaScriptLinter (String fileName) {
         int line = 0;
-        String regExSkipTheseLine = "(\\b(if)\\b)|(\\b(else)\\b)|}|\\{";
-        String regExErrorTheseLines = ";";
+        String regExSkipTheseLine = "\\b(if)\\b|\\b(else)\\b|}|\\{";
+        String semicolon = ";";
+
+//        Pattern regEx = Pattern.compile(regExSkipTheseLine);
+//        Pattern semi = Pattern.compile(";");
+
+        /*
+        Pattern p = Pattern.compile("[a-z]");
+        Matcher m = p.matcher(inputstring);
+        if (m.find())
+         */
 
         try {
             File checkFile = new File(fileName);
@@ -28,13 +39,18 @@ public class JavaScriptLinter {
                 line++;
                 System.out.println("Checking Line " + line);
                 System.out.println("Line " + line + " reads:   -->   " + scanner.nextLine() + "   <--");
+//            Matcher regExMatches = regEx.matcher(scanner.next());
+//            Matcher semiFinder = semi.matcher(scanner.next());
 
-                if (scanner.hasNext(regExSkipTheseLine)) {
-                    System.out.println("skipped line");
-                } else if (!scanner.hasNext(regExErrorTheseLines)) {
-                    System.out.println("Line " + line + ": Missing semicolon.");
-//                    System.out.println("Line reads: " + scanner.nextLine());
-                }
+
+//                if (scanner.nextLine().contains("\\b(if)\\b|\\b(else)\\b|}|\\{")) {
+//                    System.out.println("skipped line");
+//                } else if (!scanner.nextLine().contains(semicolon)) {
+//                    System.out.println("Line " + line + ": Missing semicolon.");
+//                }
+
+
+//                }
 //                if (scanner.nextLine().contains("{")) {
 //                    System.out.println("Skipped Line " + line);
 //                }
@@ -55,7 +71,7 @@ public class JavaScriptLinter {
 ////                    System.out.println();
 //                }
 
-                System.out.println();
+//                System.out.println();
 
 //                if (scanner.nextLine().contains("{")
 //                        || scanner.nextLine().contains("}")
@@ -64,13 +80,18 @@ public class JavaScriptLinter {
 //                        || scanner.nextLine().contains("")) {
 //
 //                    System.out.println("Skipped Line " + line);
-//                } else if (!scanner.nextLine().contains(";")) {
+//                }
+//                else if (!scanner.nextLine().contains(";")) {
 //                    System.out.println("Line " + line + ": Missing semicolon.");
 //                    System.out.println("Line reads: " + scanner.nextLine());
 //                    System.out.println();
 //                }
 
             }
+
+
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
