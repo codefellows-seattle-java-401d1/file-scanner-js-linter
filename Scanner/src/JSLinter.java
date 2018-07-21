@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class JSLinter {
     public static void main(String[] args) {
-        String path = "./gates.js";
+        String path = "/Users/ahmedosman/Desktop/401/labs/lab4-ahmed/04-file-scanner-js-linter/gates.js";
         jsLinter(path);
     }
 
